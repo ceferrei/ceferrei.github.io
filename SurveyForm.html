@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="SurveyForm.css">
+  <title>Mobile Apps</title>
+</head>
+<body>
+  <h1 id="title">Mobile Apps</h1>
+  <p id="description"><i>Please fill out the form below to help us understand your mobile app preferences:</i></p>
+  <form id="survey-form">
+    <label for="name" id="name-label">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <label for="email" id="email-label">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <label for="number" id="number-label">Age:</label>
+    <input type="number" id="number" name="number" min="0" max="100" placeholder="Enter a number between 0 and 100" required><br><br>
+    <label for="dropdown" id="dropdown-label">What is your favorite app?</label>
+    <select id="dropdown">
+      <option value="instagram">Instagram</option>
+      <option value="tiktok">TikTok</option>
+      <option value="facebook">Facebook</option>
+      <option value="twitter">Twitter</option>
+      <option value="whatsapp">WhatsApp</option>
+      <option value="youtube">YouTube</option>
+    </select><br><br>
+    
+    <label for="radio-group" id="radio-group-label">Did you install an app based on a recommendation from someone you know?</label>
+    <div class="vertical">
+      <label for="radio-yes">Yes</label>
+      <input type="radio" id="radio-yes" name="radio-group" value="yes" required/>
+    </div>
+    <div class="vertical">
+      <label for="radio-no">No</label><br>
+      <input type="radio" id="radio-no" name="radio-group" value="no" required/>
+    </div>
+
+    <label for="checkbox-group" id="checkbox-group-label">What apps do you have installed on your smartphone?</label>
+    <div class="vertical">
+      <label for="checkbox-social">Social media apps</label>
+      <input type="checkbox" id="checkbox-social" name="checkbox-group" value="social" required/>
+    </div>
+    <div class="vertical">
+      <label for="checkbox-Productivity">Productivity apps</label>
+      <input type="checkbox" id="checkbox-Productivity" name="checkbox-group" value="Productivity" required/>
+    </div>
+    <div class="vertical">
+      <label for="checkbox-Gaming">Gaming apps</label>
+      <input type="checkbox" id="checkbox-Gaming" name="checkbox-group" value="Gaming" required/>
+    </div>
+    <div class="vertical">
+      <label for="checkbox-Entertainment">Entertainment apps</label>
+      <input type="checkbox" id="checkbox-Entertainment" name="checkbox-group" value="Entertainment" required/>
+    </div>
+    <div class="vertical">
+      <label for="checkbox-Travel">Travel apps</label>
+      <input type="checkbox" class="inline" id="checkbox-Travel" name="checkbox-group" value="Travel" required/>
+    </div>
+    <div class="vertical">
+      <label for="checkbox-Health">Health and fitness apps</label>
+      <input type="checkbox" class="inline" id="checkbox-Health" name="checkbox-group" value="Health" required/>
+    </div><br><br>
+
+    <textarea id="comments" placeholder="Enter any additional comments"></textarea><br>
+    <button type="submit" id="submit">Submit</button>
+  </form>
+</body>
+</html>

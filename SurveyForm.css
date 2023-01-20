@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+}
+
+#title {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin: 24px 0;
+}
+
+#description {
+  font-style: italic;
+  color: #999;
+  margin: 8px 0;
+  text-align: center;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin: 16px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 16px;
+  outline: 0;
+}
+
+#radio-group, #checkbox-group {
+  display: flex;
+  flex-direction: column;
+}
+.vertical{
+  display: flex; justify-content: between; align-items: center;
+}
+.vertical label {
+   Margin-right: 6px;
+   Width: 600px;
+   Font-weight: normal
+}
+#radio-group label, #checkbox-group label {
+  margin-bottom: 8px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px;
+}
+
+textarea {
+  resize: vertical;
+  margin: 10px 0 0 0;
+}
+
+button[type="submit"] {
+  background-color: #00b8d4;
+  color: white;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}

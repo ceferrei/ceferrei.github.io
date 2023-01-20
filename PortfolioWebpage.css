@@ -1,0 +1,155 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+  
+#navbar{
+  background-color: #D89C34;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 0;
+}
+
+#nav-list{
+  display: flex;
+  flex-direction: row;
+}
+
+li{
+  list-style: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  
+  font-size: 1.8rem;
+  padding: 2rem;
+}
+
+a:hover{
+  background-color:#45567d;
+}
+
+#welcome-section{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  background-image: linear-gradient(
+    62deg, 
+    #3a3d40 0%, 
+    #181719 100%
+    );
+}
+
+h1{
+  color: white;
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+#welcome-section > p{
+  color: #FFB433;
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: 100; 
+}
+
+.projects{
+  margin: 0;
+  padding: 3rem 4rem;
+  text-align: center;
+  background-color: #45567d;
+}
+
+h2 {
+  font-size: 3.2rem;
+  color: white;
+
+}
+
+.projects > h2 {
+  padding-bottom: 3rem;
+}
+
+@media (max-width:1600px){
+  html{
+    font-size: 11px
+  }
+
+  h2{
+    font-size: 2.5rem;
+  }
+
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-img{
+  height: calc(100% - 4.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-tile{
+color:white;
+width: 100%;
+background-color: #303841;
+margin: 0;
+padding: 2rem 0;
+}
+
+.projects-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  width: 100%;
+  grid-gap: 4rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+#contact{
+  background-color:#303841;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#contact-p{
+  color: white;
+  font-style: italic;
+  font-weight: 100;
+  text-align: center;
+  font-size: 1.7rem;
+}

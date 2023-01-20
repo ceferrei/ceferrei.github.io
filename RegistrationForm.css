@@ -1,0 +1,85 @@
+
+
+/* To relate the radio inputs, give them the same name attribute with a value of account-type. Now, it is not possible to select both radio inputs at the same time. */
+
+/* Submitting the form with an option selected would not send a useful value to the server. As such, each option needs to be given a value attribute. Without which, the text content of the option will be submitted to the server.
+/
+*/
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0; /* para tirar a scroll-bar horizontal */
+    background-color: #1b1b32;
+    color: #f5f6f7;
+    font-family: Tahoma;
+    font-size: 16px;
+  }
+  
+  h1, p {
+    margin: 1em auto;
+    text-align: center;
+  }
+  
+  form {
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+  }
+  
+  fieldset {
+    border: none;
+    padding: 2rem 0;/* rem e' como px. o 1o valor e' para a altura e o 2o para as laterais. */
+    border-bottom: 3px solid #3b3b4f; /* isto acrescenta uma linha em cima e em baixo do fieldset */
+  }
+  
+  fieldset:last-of-type {
+    border-bottom: none;
+  }
+  
+  label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+  input,
+  textarea,
+  select {
+    margin: 10px 0 0 0;
+    width: 100%; /* foi esta parte que fez as caixas passarem para a parte de baixo */
+    min-height: 2em;
+  }
+  
+  input, textarea {
+    background-color: #0a0a23;
+    border: 1px solid #0a0a23;
+    color: #ffffff;
+  }
+  
+  .inline {
+    width: unset; /* isto vai quebrar a regra anterior do width criado a cima  */
+    margin: 0 0.5em 0 0;
+    vertical-align: middle; /* com isto alinhamos os para baixo as bolas de meter cruz */
+  }
+  
+  input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    background-color: #3b3b4f;
+    border-color: white;
+    min-width: 300px;
+  }
+  
+  input[type="file"] {
+    padding: 1px 2px;
+  }
+
+  a{
+    color:#dfdfe2
+  }
