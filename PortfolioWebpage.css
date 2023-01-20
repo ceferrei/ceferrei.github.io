@@ -25,7 +25,8 @@ body{
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: 2rem 0;
+  padding: 3.5rem 0;
+  box-shadow: 0 2px 0 rgb(0 0 0 / 40%);
 }
 
 #nav-list{
@@ -37,12 +38,11 @@ li{
   list-style: none;
 }
 
-a {
+a{
   color: white;
   text-decoration: none;
-  
-  font-size: 1.8rem;
-  padding: 2rem;
+  font-size: 2.8rem;
+  padding: 40px
 }
 
 a:hover{
@@ -64,15 +64,23 @@ a:hover{
     );
 }
 
+.line{
+  width: 50%;
+  color: white;
+  background-color: white;
+  height:5x;
+  margin: 0 auto 80px auto;
+}
+
 h1{
   color: white;
-  font-size: 5rem;
+  font-size: 7rem;
   font-weight: 700;
 }
 
 #welcome-section > p{
   color: #FFB433;
-  font-size: 2.5rem;
+  font-size: 3.3rem;
   font-style: italic;
   font-weight: 100; 
 }
@@ -85,35 +93,31 @@ h1{
 }
 
 h2 {
-  font-size: 3.2rem;
+  font-size: 4.5rem;
   color: white;
 
 }
 
 .projects > h2 {
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 
-@media (max-width:1600px){
+@media (max-width:1800px){
   html{
-    font-size: 11px
+    font-size: 14px
   }
 
   h2{
-    font-size: 2.5rem;
+    font-size: 3.8rem;
   }
 
   .projects-section {
-    padding: 6rem 1rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
+    padding: 7rem 5rem;
   }
 }
 
 .project-img{
-  height: calc(100% - 4.8rem);
+  height: calc(100% - 10rem);
   width: 100%;
   object-fit: cover;
 }
@@ -123,12 +127,13 @@ color:white;
 width: 100%;
 background-color: #303841;
 margin: 0;
-padding: 2rem 0;
+padding: 1.2em;
+font-size: 2rem;
 }
 
 .projects-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
   width: 100%;
   grid-gap: 4rem;
   max-width: 1280px;
@@ -151,5 +156,20 @@ padding: 2rem 0;
   font-style: italic;
   font-weight: 100;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 2.8rem;
+  margin-bottom: 8rem;
+}
+
+#contact-h2{
+  font-size: 80px;
+}
+
+.footer{
+  color: white;
+  margin-bottom: px;
+  font-size: 18px
+}
+
+#contact-links{
+  margin-bottom: 8rem;
 }
