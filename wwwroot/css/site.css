@@ -1,0 +1,70 @@
+html {
+    position: relative;
+    min-height: 100vh;
+}
+
+body {
+    margin-bottom: 6rem;
+}
+
+html, body, header {
+    font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
+    color: rgb(36, 36, 36)
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 1rem 1rem;
+    padding-top: 20px;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+a.dropdown-item:hover {
+    background-color: rgba(20,124,191, 0.2);
+    color: rgb(20,124,191);
+    font-weight: 600;
+}
+li.list-item:not(:last-child) {
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+.btn-primary {
+    background-color: rgba(20,124,191);
+    color: white;
+}
+.bg-primary {
+    background-color: rgba(20,124,191) !important;
+}

@@ -1,0 +1,68 @@
+﻿@model MyProducts.Models.ProductInStock
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "ProductInStock";
+}
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="form-group mb-2">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+
+<div class="form-group mb-2">
+    <label asp-for="Description" class="control-label"></label>
+    <input asp-for="Description" class="form-control" />
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+
+<div class="form-group mb-4">
+    <label class="control-label"></label>
+    <label for="file-upload" style="height: 44px;" class="btn btn-outline-secondary text-center px-4 d-flex justify-content-center align-items-center mb-0">
+        <i data-feather="upload"></i>
+        <span class="ms-2">Upload</span>
+    </label>
+    <input asp-for="Image.File" id="file-upload" type="file" style="display: none;" onchange="previewImage(event)">
+    
+    <div id="imagePreviewContainer" class="text-center mt-4" style="display: flex; justify-content: center; align-items: center;">
+        @if (Model.Image != null && !string.IsNullOrEmpty(Model.Image.Path))
+        {
+            <img id="imagePreview" src="@Url.Content($"~/{Model.Image.Path}")" class="d-block mx-auto" style="max-width: 150px; max-height: 150px;" />
+        }
+        else
+        {
+            <br />
+            <span id="imagePlaceholder" class="text-muted">No image selected</span>
+        }
+    </div>
+
+    
+    <span asp-validation-for="Image.File" class="text-danger"></span>
+</div>
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('imagePreview');
+            var outputContainer = document.getElementById('imagePreviewContainer');
+            var imagePlaceholder = document.getElementById('imagePlaceholder');
+            
+            if (output) {
+                output.src = reader.result;
+            } else {
+                output = document.createElement('img');
+                output.src = reader.result;
+                output.setAttribute('class', 'd-block');
+                output.setAttribute('style', 'max-width: 150px; max-height: 150px;');
+                output.setAttribute('id', 'imagePreview');
+                outputContainer.appendChild(output);
+                imagePlaceholder.style.display = 'none';
+            }
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
