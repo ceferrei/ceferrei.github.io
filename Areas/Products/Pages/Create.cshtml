@@ -1,0 +1,32 @@
+﻿@page
+@model MyProducts.Areas.Products.Pages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create a Product</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <partial name="~/Pages/Shared/EditorTemplate/ProductInStock.cshtml" model="@Model.ProductInStock" />
+            <div class="d-flex gap-2">
+                <input type="submit" value="Create" class="btn btn-primary w-100" />
+                <a class="btn btn-secondary w-100" asp-page="Index">Go back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<style>
+.form-control {
+    margin:8px 0 15px;
+    border-radius:26px;
+    height: 44px;
+}
+.btn{
+    border-radius: 26px;
+}
+</style>

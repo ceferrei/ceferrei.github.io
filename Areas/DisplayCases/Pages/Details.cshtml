@@ -1,0 +1,70 @@
+﻿@page
+@model MyProducts.Areas.DisplayCases.Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Display Case</h4>
+    <hr />
+    <div class="row">
+        <dl class="row col-sm-6">
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.DisplayCase.Name)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.DisplayCase.Name)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.DisplayCase.ShelfCount)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.DisplayCase.ShelfCount)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.DisplayCase.ProductsPerShelf)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.DisplayCase.ProductsPerShelf)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.DisplayCase.LastUpdatedDate)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.DisplayCase.LastUpdatedDate)
+            </dd>
+        </dl>
+        <table class="col-sm-6" border="1">
+            <tbody>
+                @if (Model.TableDisplayCases != null && Model.DisplayCase != null)
+                {
+                    @for (int row = 0; row < Model.DisplayCase.ShelfCount; row++)
+                    {
+                        <tr>
+                            @for (int col = 0; col < Model.DisplayCase.ProductsPerShelf; col++)
+                            {
+                                <td class="border">
+                                    <div class="d-flex align-content-center justify-content-center gap-2">
+                                        <p class="m-0">@Model.TableDisplayCases[row, col].Shelf</p>
+                                        <p class="m-0">@Model.TableDisplayCases[row, col].Column</p>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <p>Empty</p>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.DisplayCase?.DisplayCaseId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

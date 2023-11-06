@@ -1,0 +1,73 @@
+﻿@page
+@model MyProducts.Areas.Products.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<h1>Edit</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+
+            <partial name="~/Pages/Shared/EditorTemplate/ProductInStock.cshtml" model="@Model.ProductInStock"/>
+
+            <div class="form-group mt-2">
+                <div class="d-flex gap-2 ">
+                    <button id="btn-submit" type="submit" class="btn btn-primary w-100">
+                        Save
+                    </button>
+                    <a asp-page="./Index" class="btn btn-secondary w-100">Go back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<style>
+    .btn {
+        border-radius: 20px;
+    }
+
+    inut {
+        border-radius: 26px;
+    }
+
+    .form-control {
+        border-radius: 26px;
+        height: 44px;
+        margin: 8px 0 15px;
+    }
+
+    .img-preview {
+        max-width: 200px; /* Defina o tamanho máximo da imagem conforme necessário */
+        max-height: 200px;
+        display: block;
+        margin: 0 auto; /* Centralize a imagem horizontalmente */
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Quando o usuário selecionar uma imagem
+        $('#image-input').change(function () {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    // Exibe a imagem selecionada na visualização
+                    $('#image-preview').html('<img src="' + e.target.result + '" class="img-preview" />');
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>

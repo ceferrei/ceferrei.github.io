@@ -1,0 +1,149 @@
+﻿@page
+@model MyProducts.Areas.DisplayCases.Pages.CompatibilityTestModel
+
+@{
+    ViewData["Title"] = "Testar";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <h1>Testar planeamento</h1>
+
+        <h4>Vitrine selecionada</h4>
+        <hr />
+
+        <!-- Mostrar a imagem da vitrine -->
+        <div class="card" style="width: 18rem;">
+            <img src="../VitrinePretaPreenchida.jpg" class="card-img-top" alt="imagem de uma máquina de bebidas">
+            <div class="card-body">
+                <h5 class="card-title">Display case name</h5>
+                <p class="card-text">30 Products.<br>Last updated date 30/05/23.</p>
+                @if (Model.DisplayCase != null)
+                {
+                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.DisplayCase.DisplayCaseId">Edit</a>
+                }
+                else
+                {
+                    <p>DisplayCase is not empty.</p>
+                }
+
+            </div>
+        </div>
+        <a asp-page="./Index">Back to list</a>
+
+        <!-- Formulário para realizar o teste -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <form method="post" enctype="multipart/form-data">
+                    <!-- Botão para carregar uma foto -->
+                    <div class="form-group">
+                        <label for="imageInput">Select the photo of the display case you want to analyze:</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control-file my-2" id="imageInput" name="TakenPhoto" accept="image/*">
+                            <div class="form-group">
+
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-primary mr-2" onclick="takePhoto()">Take photo</button>
+                                    <button type="button" class="btn btn-secondary" onclick="browsePhoto()">Upload photo</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visualização da imagem selecionada -->
+                    <div class="form-group">
+                        <img id="imagePreview" class="img-thumbnail" src="#" alt="Preview" style="display: none;">
+                    </div>
+
+                    <div class="form-group mt-4 mb-4">
+                        <button type="button" class="btn btn-primary" onclick="simulateCompatibilityTest()">Test planning</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts Bootstrap e jQuery (mantenha os que você já tinha) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Script para mostrar a visualização da imagem selecionada -->
+    <script>
+        // Função para mostrar a visualização da imagem selecionada
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                    $('#imagePreview').show();
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Vincule a função ao evento change do input de arquivo
+        $('#imageInput').change(function () {
+            readURL(this);
+        });
+
+        // Função para tirar uma foto (usando a API de mídia)
+        function takePhoto() {
+            // Adicione aqui o código para tirar uma foto usando a API de mídia (ex: getUserMedia)
+            // Exemplo simples:
+            alert("Tirando foto..."); // Substitua isso com a lógica real para tirar uma foto.
+        }
+
+        // Função para carregar uma foto (ativando o input de arquivo)
+        function browsePhoto() {
+            $('#imageInput').click();
+        }
+
+        function simulateCompatibilityTest() {
+            // Simulação de valores aleatórios de compatibilidade (substitua com lógica real quando estiver integrado com a IA)
+            var compatibilidade = Math.random() * 100;
+
+            // Determine se a compatibilidade é aprovada ou rejeitada (80% como critério)
+            var aprovado = compatibilidade >= 80;
+
+            // Exiba o balão com base na aprovação
+            var balao = document.createElement("div");
+            balao.className = "alert alert-" + (aprovado ? "success" : "danger");
+            balao.innerHTML = (aprovado ? 'Approved' : 'Failure') + ' - Compatibility: ' + compatibilidade.toFixed(2) + '%';
+
+            // Adicione o balão à página
+            var container = document.querySelector("main .container");
+            console.log(container)
+            container.appendChild(balao);
+        }
+    </script>
+</body>
+</html>
