@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
 import { VideoPreview } from "./video-preview"
+import Image from "next/image"
+
 
 export function Projects() {
   const projects = [
@@ -13,7 +15,7 @@ export function Projects() {
       video: "/videos/steps.mp4",
       tags: ["React", "useState", "Component Design"],
       github: "https://github.com/ceferrei/steps-component-react",
-      demo: "https://github-production-user-asset-6210df.s3.amazonaws.com/116651825/429585945-dcdc0696-a85e-4b48-89b7-7b80af0a9eb6.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250402%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250402T201802Z&X-Amz-Expires=300&X-Amz-Signature=27bcf91017e5bc725db4b19ff805640444741c56e6b397b51be34cb7fe488a74&X-Amz-SignedHeaders=host",
+      demo: "/videos/steps.mp4",
     },
     {
       title: "Bug-Free Pizza",
@@ -31,7 +33,7 @@ export function Projects() {
       video: "/videos/accordion.mp4",
       tags: ["React", "useState", "Component Design"],
       github: "https://github.com/ceferrei/accordion-component-react",
-      demo: "https://github-production-user-asset-6210df.s3.amazonaws.com/116651825/429568851-1ebcf0da-97d7-40f5-95b6-9a453b73c62b.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250402%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250402T201923Z&X-Amz-Expires=300&X-Amz-Signature=c6eae33273b56ff18775eed307cacca208909b95e724b93a4102d821f2f91c54&X-Amz-SignedHeaders=host",
+      demo: "/videos/accordion.mp4",
     },
     {
       title: "Date Calculator",
@@ -40,7 +42,7 @@ export function Projects() {
       video: "/videos/dateCounter.mp4",
       tags: ["React", "Date Manipulation", "UI/UX"],
       github: "https://github.com/ceferrei/date-counter-react",
-      demo: "https://github-production-user-asset-6210df.s3.amazonaws.com/116651825/427713936-a78eea6f-a5fa-41d9-a0ef-720e9720ecab.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250402%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250402T201948Z&X-Amz-Expires=300&X-Amz-Signature=d15d1ef12c55eab6e700e5a46964558ac952785f50dbc5072193a5ee0f5946a9&X-Amz-SignedHeaders=host",
+      demo: "/videos/dateCounterResult.mp4",
     },
     {
       title: "React Flashcards",
@@ -49,7 +51,7 @@ export function Projects() {
       video: "/videos/flashcards.mp4",
       tags: ["React", "useState", "CSS Grid"],
       github: "https://github.com/ceferrei/flashcards",
-      demo: "https://github.com/user-attachments/assets/d7214f43-9ef2-40ff-b23f-b23b6182eda1",
+      demo: "/videos/flashcards.mp4",
     },
     {
       title: "React Profile Card",
@@ -67,7 +69,7 @@ export function Projects() {
       video: "/videos/travelList.mp4",
       tags: ["React", "State Management", "Sorting"],
       github: "https://github.com/ceferrei/travel-list-react",
-      demo: "https://github-production-user-asset-6210df.s3.amazonaws.com/116651825/428784484-b47d1704-77a6-459b-83b2-5edc612292a8.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250402%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250402T202012Z&X-Amz-Expires=300&X-Amz-Signature=d136c390614f803eb39843be2a0612e4ef98e50503ebf41dce75ad35d8fa0947&X-Amz-SignedHeaders=host",
+      demo: "/videos/travelList.mp4",
     },
   ]
 
@@ -84,11 +86,11 @@ export function Projects() {
               {project.video ? (
                 <VideoPreview src={project.demo} />
               ) : (
-                <div className="h-[250px] overflow-hidden">
-                  <img
+                <div className="h-[250px] overflow-hidden flex items-center justify-center bg-muted/10">
+                  <Image width={250} height={250}
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform hover:scale-105"
+                    className="max-w-full max-h-full object-contain transition-transform hover:scale-105"
                   />
                 </div>
               )}

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown } from "lucide-react"
+import Image from "next/image"
 
 export function Hero() {
   return (
@@ -27,7 +28,7 @@ export function Hero() {
           </div>
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl">
-              <img src="/profile-final.jpg" alt="Cecilia Marçal" className="w-full h-full object-cover" />
+              <Image width={256} height={256} src="/profile-final.jpg" alt="Cecilia Marçal" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
