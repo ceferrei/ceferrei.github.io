@@ -71,6 +71,15 @@ export function Projects() {
       github: "https://github.com/ceferrei/travel-list-react",
       demo: "/videos/travelList.mp4",
     },
+    {
+      title: "Tip Calculator",
+      description:
+        "A simple tip calculator that allows users to calculate the amount of tip they should leave based on the total amount of the bill and the percentage of tip they want to leave",
+      video: "/videos/tip-calculator.mp4",
+      tags: ["React", "State Management", "Lifting State"],
+      github: "https://github.com/ceferrei/tip-calculator-react",
+      demo: "/videos/tip-calculator.mp4",
+    },
   ]
 
   return (
