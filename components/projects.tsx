@@ -80,7 +80,17 @@ export function Projects() {
       github: "https://github.com/ceferrei/tip-calculator-react",
       demo: "/videos/tip-calculator.mp4",
     },
+    {
+      title: "Eat-'N-Split",
+      description:
+        "A simple and interactive React application designed to help you easily split bills with friends and keep track of who owes whom.",
+      video: "/videos/EatNSplit.mp4",
+      tags: ["React", "State Management", "Lifting State"],
+      github: "https://github.com/ceferrei/eat--N-split-react.git",
+      demo: "/videos/EatNSplit.mp4",
+    },
   ]
+  
 
   return (
     <section id="projects" className="py-20 bg-muted/30">
