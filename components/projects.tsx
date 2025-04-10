@@ -74,7 +74,7 @@ export function Projects() {
     {
       title: "Tip Calculator",
       description:
-        "A simple tip calculator that allows users to calculate the amount of tip they should leave based on the total amount of the bill and the percentage of tip they want to leave",
+        "A tip calculator that allows users to calculate the amount of tip they should leave based on the total amount of the bill and the percentage of tip they want to leave",
       video: "/videos/tip-calculator.mp4",
       tags: ["React", "State Management", "Lifting State"],
       github: "https://github.com/ceferrei/tip-calculator-react",
@@ -83,11 +83,20 @@ export function Projects() {
     {
       title: "Eat-'N-Split",
       description:
-        "A simple and interactive React application designed to help you easily split bills with friends and keep track of who owes whom.",
+        "A React application designed to help you easily split bills with friends and keep track of who owes whom.",
       video: "/videos/EatNSplit.mp4",
       tags: ["React", "State Management", "Lifting State"],
       github: "https://github.com/ceferrei/eat--N-split-react.git",
       demo: "/videos/EatNSplit.mp4",
+    },
+    {
+      title: "Plant Care",
+      description:
+        "A React application to manage your houseplants, track watering schedules, and store care notes. Perfect for anyone looking to organize and streamline plant maintenance.",
+      video: "/videos/PlantCare.mp4",
+      tags: ["React", "State Management", "Lifting State"],
+      github: "https://github.com/ceferrei/Plant-Care-react",
+      demo: "/videos/PlantCare.mp4",
     },
   ]
   
