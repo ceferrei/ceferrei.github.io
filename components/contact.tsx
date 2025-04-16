@@ -43,7 +43,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-18 xl:px-24">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           Get In <span className="text-primary">Touch</span>
         </h2>

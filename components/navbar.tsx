@@ -22,7 +22,7 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-18 xl:px-24 py-3 flex justify-between items-center">
         <a href="#" className="text-xl font-bold text-primary">
           CM
         </a>
