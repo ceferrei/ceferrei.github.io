@@ -1,29 +1,6 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -47,6 +24,37 @@ body {
     --input: 214.3 31.8% 91.4%;
     --ring: 329 100% 70%;
     --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    font-weight: bold;
+    background: linear-gradient(90deg, hsl(var(--primary)), #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+
+  .cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+
+  .cv-button:hover {
+    transform: translateY(-2px);
   }
 }
 
@@ -109,4 +117,43 @@ body {
   content: " (View Full Image)";
   font-size: 0.75rem;
   opacity: 0.8;
+}
+
+/* Typing animation styles */
+.typing-text {
+  display: inline-block;
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Expand button styles */
+.expand-button-center {
+  transform: translateX(10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.group:hover .expand-button-center {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Remove the old expand button styles */
+.expand-button {
+  display: none;
 }
