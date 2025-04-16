@@ -25,14 +25,15 @@ export function Hero() {
                 <a href="#projects">View My Work</a>
               </Button>
               <Button variant="outline" size="lg" asChild className="cv-button">
-                <a href="/cecilia-marcal-cv.pdf" target="_blank" rel="noopener noreferrer">
-                  <FileText className="h-4 w-4 mr-2" /> Download CV
-                </a>
-              </Button>
+  <a href="/Cecilia Marcal - Junior FrontEnd Developer.pdf" target="_blank" rel="noopener noreferrer">
+    <FileText className="h-4 w-4 mr-2" /> Download CV
+  </a>
+</Button>
+
             </div>
           </div>
           <div className="flex-1 flex justify-center md:justify-end">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl animate-float">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl">
               <Image
                 width={320}
                 height={320}
