@@ -9,12 +9,12 @@ import { Footer } from "@/components/footer"
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <Navbar />">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
       <Footer />
     </main>
   )
