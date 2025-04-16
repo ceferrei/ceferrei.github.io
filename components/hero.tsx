@@ -8,7 +8,7 @@ export function Hero() {
 
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex-1 space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold">
