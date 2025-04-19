@@ -5,18 +5,37 @@ import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { NavigationDots } from "@/components/custom-fullpage"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <main className="min-h-screen">
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <NavigationDots />
+
+      <section id="hero">
+        <Hero />
+      </section>
+
+      <section id="about" >
+        <About />
+      </section>
+
+      <section id="skills" >
+        <Skills />
+      </section>
+
+      <section id="projects" className="min-h-screen">
+        <Projects />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
+
+      <section id="footer">
+        <Footer />
+      </section>
     </main>
   )
 }
-
