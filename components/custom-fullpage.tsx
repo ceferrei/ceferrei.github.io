@@ -2,18 +2,18 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 
 export function NavigationDots() {
   const [activeSection, setActiveSection] = useState("hero")
 
-  const sections = [
+  const sections = React.useMemo(() => [
     { id: "hero", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
-  ]
+  ], [])
 
   useEffect(() => {
     const handleScroll = () => {
