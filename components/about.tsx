@@ -50,7 +50,7 @@ export function About() {
                       <div className="mb-1 text-sm text-primary/80 font-medium">2023 - Present</div>
                       <h4 className="text-lg font-medium">Continuous Learning</h4>
                       <p className="text-muted-foreground text-sm">
-                        Enhancing my skills through "The Ultimate React Course 2025" and other resources. Always
+                        Enhancing my skills through &ldquo;The Ultimate React Course 2025&rdquo; and other resources. Always
                         exploring new technologies and opportunities.
                       </p>
                     </div>
@@ -100,7 +100,7 @@ export function About() {
                             <h5 className="font-medium text-foreground">Frontend Developer</h5>
                             <p className="text-xs text-muted-foreground mb-2">Sep 2023 - Present</p>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Started as a 3-month intern and was hired full-time
+                              Started as a 3-month intern and was hired full-time.
                             </p>
                             <ul className="text-sm text-muted-foreground space-y-1">
                               <li>• ReactJS, NextJS, React Native development</li>
