@@ -4,9 +4,10 @@ import { useState, useRef, useEffect } from "react"
 
 interface VideoPreviewProps {
   src: string
+  title?: string
 }
 
-export function VideoPreview({ src }: VideoPreviewProps) {
+export function VideoPreview({ src, title }: VideoPreviewProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isHovering, setIsHovering] = useState(false)
   const [hasError, setHasError] = useState(false)
