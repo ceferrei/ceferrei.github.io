@@ -1,58 +1,50 @@
 "use client"
-
-import type React from "react"
-
-import { useState } from "react"
+import { useForm, ValidationError } from "@formspree/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle } from "lucide-react"
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
+  const [state, handleSubmit] = useForm("mldnjewp")
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      setFormData({ name: "", email: "", message: "" })
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 5000)
-    }, 1500)
+  if (state.succeeded) {
+    return (
+      <section id="contact" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <div className="max-w-md mx-auto bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 p-8 rounded-lg">
+              <CheckCircle className="h-12 w-12 mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold mb-2">Thank you!</h3>
+              <p>Your message has been sent successfully. I'll get back to you soon!</p>
+              <Button onClick={() => window.location.reload()} className="mt-4" variant="outline">
+                Send Another Message
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-18 xl:px-24">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Get In <span className="text-primary">Touch</span>
-        </h2>
+    <section id="contact" className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Get In <span className="text-primary">Touch</span>
+          </h2>
+          <p className="text-lg text-muted-foreground mt-4">
+            Have a question or want to work together? Reach out to me!
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div>
+          <div className="animate-fade-in">
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
             <div className="space-y-6">
-              <Card>
+              <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 flex items-center gap-4">
                   <div className="bg-primary/10 p-3 rounded-full">
                     <Mail className="text-primary h-6 w-6" />
@@ -64,7 +56,7 @@ export function Contact() {
                 </CardContent>
               </Card>
 
-              <Card>
+              {/* <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 flex items-center gap-4">
                   <div className="bg-primary/10 p-3 rounded-full">
                     <Phone className="text-primary h-6 w-6" />
@@ -74,9 +66,9 @@ export function Contact() {
                     <p className="font-medium">+351 916 311 197</p>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
 
-              <Card>
+              <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 flex items-center gap-4">
                   <div className="bg-primary/10 p-3 rounded-full">
                     <MapPin className="text-primary h-6 w-6" />
@@ -88,7 +80,7 @@ export function Contact() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 flex items-center gap-4">
                   <div className="bg-primary/10 p-3 rounded-full">
                     <Linkedin className="text-primary h-6 w-6" />
@@ -109,73 +101,98 @@ export function Contact() {
             </div>
           </div>
 
-          <div>
+          <div className="animate-fade-in delay-200">
             <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your name"
-                />
-              </div>
+            <Card className="overflow-hidden border-none shadow-md">
+              <CardContent className="p-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Name *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="Your name"
+                      className="contact-input"
+                      disabled={state.submitting}
+                    />
+                    <ValidationError
+                      prefix="Name"
+                      field="name"
+                      errors={state.errors}
+                      className="text-red-500 text-sm mt-1"
+                    />
+                  </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your email"
-                />
-              </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="Your email"
+                      className="contact-input"
+                      disabled={state.submitting}
+                    />
+                    <ValidationError
+                      prefix="Email"
+                      field="email"
+                      errors={state.errors}
+                      className="text-red-500 text-sm mt-1"
+                    />
+                  </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your message"
-                  rows={5}
-                />
-              </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                      Message *
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      required
+                      placeholder="Your message"
+                      rows={5}
+                      className="contact-input"
+                      disabled={state.submitting}
+                    />
+                    <ValidationError
+                      prefix="Message"
+                      field="message"
+                      errors={state.errors}
+                      className="text-red-500 text-sm mt-1"
+                    />
+                  </div>
 
-              <Button type="submit" disabled={isSubmitting} className="w-full">
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    <Send className="mr-2 h-4 w-4" /> Send Message
-                  </>
-                )}
-              </Button>
+                  <Button type="submit" disabled={state.submitting} className="w-full rounded-full">
+                    {state.submitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4" /> Send Message
+                      </>
+                    )}
+                  </Button>
 
-              {isSubmitted && (
-                <div className="bg-green-100 text-green-700 p-3 rounded-md text-center">
-                  Thank you! Your message has been sent successfully.
-                </div>
-              )}
-            </form>
+                  {state.errors && state.errors.length > 0 && (
+                    <div className="bg-red-100 text-red-700 dark:bg-red-900/20 dark:text-red-400 p-3 rounded-md text-center">
+                      Please check the form for errors and try again.
+                    </div>
+                  )}
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
     </section>
   )
 }
-

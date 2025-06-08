@@ -112,6 +112,17 @@ const [isModalOpen, setIsModalOpen] = useState(false)
       complexity: 4,
     },
     {
+      title: "Interactive Text Expander",
+      description:
+        "A modern, customizable React component for expanding and collapsing text content with smooth animations and flexible configuration options.",
+      video: "/videos/textExpander.mp4",
+      tags: ["React", "Component Design", "Animations", "Customizable"],
+      github: "https://github.com/ceferrei/text-expander-component-react",
+      demo: "https://text-expander-component-react.vercel.app/",
+      category: "UI Components",
+      complexity: 4,
+    },
+    {
       title: "React Flashcards",
       description:
         "A flashcard application that displays questions and reveals answers when clicked, using React Hooks for state management.",
