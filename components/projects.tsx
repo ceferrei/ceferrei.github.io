@@ -177,7 +177,7 @@ export function Projects() {
                 <DepthCard className="h-full">
                   <Card className="project-card overflow-hidden flex flex-col h-full">
                     {project.video ? (
-                      <VideoPreview src={project.video} title={project.title} />
+                      <VideoPreview src={project.video} />
                     ) : project.image ? (
                       <ImagePreview
                         src={project.image || "/placeholder.svg"}
