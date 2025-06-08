@@ -25,8 +25,13 @@ export function Skills() {
     { name: "French", level: "B2" },
   ]
 
+  interface Skill {
+    name: string;
+    color: string;
+  }
+
   // Função para criar animação uniforme para todas as skills
-  const createSkillAnimation = (skill: any, index: number) => (
+  const createSkillAnimation = (skill: Skill, index: number) => (
     <motion.div
       key={skill.name}
       className="bg-gray-100 rounded-full px-4 py-2 flex items-center gap-2"
