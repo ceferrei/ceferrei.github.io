@@ -59,7 +59,7 @@ export function Projects() {
       title: "Travel List",
       description:
         "An application for creating and managing a travel packing list with features like marking items as packed and sorting options.",
-      video: "/videos/travelList.mp4",
+      video: "/videos/TravelList.mp4",
       tags: ["React", "State Management", "Sorting"],
       github: "https://github.com/ceferrei/travel-list-react",
       demo: "https://travel-list-react-eight.vercel.app/",
@@ -70,7 +70,7 @@ export function Projects() {
       title: "Tip Calculator",
       description:
         "A calculator app that helps users determine appropriate tip amounts based on bill total and service quality.",
-      video: "/videos/tip-calculator.mp4",
+      video: "/videos/tip-Calculator.mp4",
       tags: ["React", "Calculations", "Form Handling"],
       github: "https://github.com/ceferrei/tip-calculator",
       demo: "https://tip-calculator-react-ivory.vercel.app/",
