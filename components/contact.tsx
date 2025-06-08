@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle } from "lucide-react"
+import { Mail, MapPin, Linkedin, Send, CheckCircle } from "lucide-react"
 
 export function Contact() {
   const [state, handleSubmit] = useForm("mldnjewp")
@@ -17,7 +17,7 @@ export function Contact() {
             <div className="max-w-md mx-auto bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 p-8 rounded-lg">
               <CheckCircle className="h-12 w-12 mx-auto mb-4" />
               <h3 className="text-2xl font-semibold mb-2">Thank you!</h3>
-              <p>Your message has been sent successfully. I'll get back to you soon!</p>
+              <p>Your message has been sent successfully. I&apos;ll get back to you soon!</p>
               <Button onClick={() => window.location.reload()} className="mt-4" variant="outline">
                 Send Another Message
               </Button>
@@ -182,7 +182,7 @@ export function Contact() {
                     )}
                   </Button>
 
-                  {state.errors && state.errors.length > 0 && (
+                  {state.errors && Object.keys(state.errors).length > 0 && (
                     <div className="bg-red-100 text-red-700 dark:bg-red-900/20 dark:text-red-400 p-3 rounded-md text-center">
                       Please check the form for errors and try again.
                     </div>
