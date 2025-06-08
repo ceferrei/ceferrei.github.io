@@ -4,10 +4,9 @@ import { useState, useRef, useEffect } from "react"
 
 interface VideoPreviewProps {
   src: string
-  title?: string
 }
 
-export function VideoPreview({ src, title }: VideoPreviewProps) {
+export function VideoPreview({ src }: VideoPreviewProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isHovering, setIsHovering] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -48,6 +47,8 @@ export function VideoPreview({ src, title }: VideoPreviewProps) {
       className="video-container group"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
+      onTouchStart={() => setIsHovering(true)}
+      onTouchEnd={() => setIsHovering(false)}
     >
       {hasError ? (
         <div className="w-full h-full flex items-center justify-center bg-muted/50">
@@ -64,10 +65,13 @@ export function VideoPreview({ src, title }: VideoPreviewProps) {
             className="w-full h-full object-cover"
             onError={() => setHasError(true)}
           />
-            
+
           {!isHovering && (
             <div className="video-overlay">
-              <span className="text-sm font-medium bg-black/50 px-3 py-1 rounded-full">Hover to preview</span>
+              <span className="text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
+                <span className="hidden md:inline">Hover to preview</span>
+                <span className="md:hidden">Tap to preview</span>
+              </span>
             </div>
           )}
         </>
