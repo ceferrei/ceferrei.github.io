@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react"
+import { ViewCounter } from "./view-counter"
 
 export function Footer() {
   return (
@@ -7,7 +8,10 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <p className="text-lg font-semibold text-primary">Cecilia Marçal</p>
-            <p className="text-sm text-muted-foreground">Junior Frontend Developer</p>
+            <p className="text-sm text-muted-foreground">Frontend Developer</p>
+            <div className="mt-2">
+              <ViewCounter />
+            </div>
           </div>
 
           <div className="flex items-center gap-4">
@@ -46,4 +50,3 @@ export function Footer() {
     </footer>
   )
 }
-
