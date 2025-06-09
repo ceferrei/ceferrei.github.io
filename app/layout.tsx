@@ -24,14 +24,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR">
       <body className={poppins.className}>
-        <Suspense fallback={null}>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
-          <Analytics />
-        </Suspense>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <main className="min-h-screen bg-background font-sans antialiased">
+            <Suspense fallback={null}>
+              {children}
+            </Suspense>
+          </main>
+        </ThemeProvider>
+        <Analytics trackingId="G-3B78KWSP0R" />
       </body>
     </html>
   )
