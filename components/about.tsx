@@ -118,7 +118,7 @@ export function About() {
                               Started as a 3-month intern and was hired full-time.
                             </p>
                             <ul className="text-sm text-muted-foreground space-y-1">
-                              <li>• ReactJS, NextJS, React Native development</li>
+                              <li>• ReactJS, TypeScript,  NextJS, React Native development</li>
                               <li>• AI-powered platform interfaces</li>
                               <li>• WebSockets & FastAPI integration</li>
                               <li>• Jest & Playwright testing</li>

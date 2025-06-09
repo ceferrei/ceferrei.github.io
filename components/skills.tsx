@@ -10,6 +10,7 @@ export function Skills() {
     { name: "HTML/CSS", level: "Advanced", color: "green" },
     { name: "NextJS", level: "Advanced", color: "green" },
     { name: "TailwindCSS", level: "Advanced", color: "green" },
+    { name: "TypeScript", level: "Advanced", color: "blue" },
     { name: "React Native", level: "Intermediate", color: "blue" },
     { name: "C#", level: "Intermediate", color: "blue" },
     { name: "Playwright", level: "Intermediate", color: "blue" },
