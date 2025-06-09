@@ -8,6 +8,7 @@ import { Mail, MapPin, Linkedin, Send, CheckCircle, X } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
 import { DepthCard } from "./depth-card"
 import { LocationTooltip } from "./location-tooltip"
+import { HoverCard, HoverCardTrigger } from "@/components/ui/hover-card"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 
@@ -92,9 +93,7 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Location</p>
-                      <LocationTooltip>
-                        <span className="font-medium">Braga, Portugal</span>
-                      </LocationTooltip>
+                      <LocationTooltip />
                     </div>
                   </CardContent>
                 </Card>
