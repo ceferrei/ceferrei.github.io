@@ -66,7 +66,12 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="font-medium">cecilia.marcal@outlook.com</p>
+                      <a
+                        href="mailto:cecilia.marcal@outlook.com"
+                        className="font-medium hover:text-primary transition-colors"
+                      >
+                        cecilia.marcal@outlook.com
+                      </a>
                     </div>
                   </CardContent>
                 </Card>

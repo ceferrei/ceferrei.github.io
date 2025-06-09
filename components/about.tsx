@@ -35,29 +35,29 @@ export function About() {
                   <div className="space-y-8">
                     {/* Current */}
                     <div className="relative pl-8 border-l-2 border-primary">
-                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary"></div>
+                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary z-10"></div>
                       <div className="mb-1 text-sm text-primary font-medium">Present</div>
                       <h4 className="text-lg font-medium">Frontend Developer</h4>
                       <p className="text-muted-foreground text-sm">
                         Specialized in React and Next.js, with experience in creating responsive interfaces and testing.
-                        Open to exploring any frontend technologies and frameworks.
+                        Open to explore any frontend technologies and frameworks.
                       </p>
                     </div>
 
                     {/* Learning */}
                     <div className="relative pl-8 border-l-2 border-primary/60">
-                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary/60"></div>
+                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary/60 z-10"></div>
                       <div className="mb-1 text-sm text-primary/80 font-medium">2023 - Present</div>
                       <h4 className="text-lg font-medium">Continuous Learning</h4>
                       <p className="text-muted-foreground text-sm">
-                        Enhancing my skills through &ldquo;The Ultimate React Course 2025&rdquo; and other resources. Always
-                        exploring new technologies and opportunities.
+                        Enhancing my skills through &ldquo;The Ultimate React Course 2025&rdquo; and other resources.
+                        Always exploring new technologies and opportunities.
                       </p>
                     </div>
 
                     {/* Career Start */}
                     <div className="relative pl-8 border-l-2 border-primary/30">
-                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary/30"></div>
+                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary/30 z-10"></div>
                       <div className="mb-1 text-sm text-primary/60 font-medium">2022 - 2023</div>
                       <h4 className="text-lg font-medium">Career Transition</h4>
                       <p className="text-muted-foreground text-sm">
@@ -72,7 +72,7 @@ export function About() {
                       Current Focus
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {["React", "Next.js", "TypeScript", "Tailwind CSS", "Testing"].map((skill) => (
+                      {["React", "Next.js", "TypeScript", "Tailwind CSS", "Jest", "Playwright"].map((skill) => (
                         <Badge key={skill} variant="outline" className="bg-primary/5 hover:bg-primary/10">
                           {skill}
                         </Badge>
