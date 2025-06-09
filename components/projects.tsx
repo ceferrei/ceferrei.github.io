@@ -4,8 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
-import { VideoPreview } from "./video-preview"
+import { Github, ExternalLink, Expand, X } from "lucide-react"
 import { ImagePreview } from "./image-preview"
 import { ProjectFilter } from "./project-filter"
 import { motion, AnimatePresence } from "framer-motion"
@@ -30,6 +29,7 @@ interface Project {
 
 export function Projects() {
   const [activeCategory, setActiveCategory] = useState("All")
+  const [expandedVideo, setExpandedVideo] = useState<string | null>(null)
 
   // Define projects with categories and complexity
   const allProjects: Project[] = [
@@ -154,6 +154,16 @@ export function Projects() {
     setActiveCategory(category)
   }
 
+  // Handle video expansion
+  const handleVideoExpand = (videoUrl: string) => {
+    setExpandedVideo(videoUrl)
+  }
+
+  // Handle video close
+  const handleVideoClose = () => {
+    setExpandedVideo(null)
+  }
+
   return (
     <AnimatedSection id="projects" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-18 xl:px-24">
@@ -177,7 +187,31 @@ export function Projects() {
                 <DepthCard className="h-full">
                   <Card className="project-card overflow-hidden flex flex-col h-full">
                     {project.video ? (
-                      <VideoPreview src={project.video} />
+                      <div className="video-container relative group">
+                        <video
+                          src={project.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Botão de expandir com destaque visual */}
+                        <div className="absolute bottom-3 right-3">
+                          <div className="relative">
+                            {/* Círculo de destaque pulsante atrás do botão */}
+                            <div className="absolute inset-0 bg-primary/30 rounded-full animate-ping"></div>
+                            <button
+                              onClick={() => handleVideoExpand(project.video!)}
+                              className="relative z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200"
+                              aria-label="Expand video"
+                              title="Expand video"
+                            >
+                              <Expand className="h-5 w-5" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     ) : project.image ? (
                       <ImagePreview
                         src={project.image || "/placeholder.svg"}
@@ -231,6 +265,32 @@ export function Projects() {
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Video Expansion Modal */}
+        {expandedVideo && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+            <div className="relative max-w-4xl w-full">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleVideoClose}
+                className="absolute -top-12 right-0 text-white hover:text-gray-300"
+              >
+                <X className="h-6 w-6" />
+                Close
+              </Button>
+              <video
+                src={expandedVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                className="w-full h-auto max-h-[80vh] rounded-lg"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </AnimatedSection>
   )
