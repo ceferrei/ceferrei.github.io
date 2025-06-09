@@ -1,11 +1,18 @@
 "use client"
 import Script from "next/script"
 
-export function Analytics() {
+interface AnalyticsProps {
+  trackingId: string
+}
+
+export function Analytics({ trackingId }: AnalyticsProps) {
   return (
     <>
       {/* Google Analytics */}
-      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-3B78KWSP0R`} />
+      <Script 
+        strategy="afterInteractive" 
+        src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`} 
+      />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
@@ -14,7 +21,7 @@ export function Analytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-3B78KWSP0R');
+            gtag('config', '${trackingId}');
           `,
         }}
       />
