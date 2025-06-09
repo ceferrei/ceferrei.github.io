@@ -8,15 +8,15 @@ export function Skills() {
     { name: "JavaScript", level: "Advanced", color: "green" },
     { name: "ReactJS", level: "Advanced", color: "green" },
     { name: "HTML/CSS", level: "Advanced", color: "green" },
-    { name: "NextJS", level: "Intermediate", color: "blue" },
-    { name: "React Native", level: "Intermediate", color: "blue" },
+    { name: "NextJS", level: "Intermediate", color: "green" },
     { name: "TailwindCSS", level: "Advanced", color: "green" },
+    { name: "React Native", level: "Intermediate", color: "blue" },
     { name: "C#", level: "Intermediate", color: "blue" },
-    { name: "C/C++", level: "Intermediate", color: "blue" },
-    { name: "Java", level: "Intermediate", color: "blue" },
-    { name: "Python", level: "Beginner", color: "orange" },
-    { name: "Jest", level: "Intermediate", color: "blue" },
     { name: "Playwright", level: "Intermediate", color: "blue" },
+    { name: "Java", level: "Intermediate", color: "blue" },
+    { name: "Jest", level: "Intermediate", color: "blue" },
+    { name: "Python", level: "Beginner", color: "orange" },
+    { name: "C/C++", level: "Intermediate", color: "orange" },
   ]
 
   const languages = [
