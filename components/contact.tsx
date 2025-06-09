@@ -4,43 +4,30 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, MapPin, Linkedin, Send, CheckCircle } from "lucide-react"
+import { Mail, MapPin, Linkedin, Send, CheckCircle, X } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
 import { DepthCard } from "./depth-card"
-import { motion } from "framer-motion"
+import { LocationTooltip } from "./location-tooltip"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react"
 
 export function Contact() {
-  const [state, handleSubmit] = useForm("mldnjewp")
+  const [state, handleSubmit, reset] = useForm("mldnjewp")
+  const [showSuccess, setShowSuccess] = useState(false)
 
-  if (state.succeeded) {
-    return (
-      <AnimatedSection id="contact" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <motion.div
-              className="max-w-md mx-auto bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 p-8 rounded-lg"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1, rotate: [0, 10, -10, 0] }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                <CheckCircle className="h-12 w-12 mx-auto mb-4" />
-              </motion.div>
-              <h3 className="text-2xl font-semibold mb-2">Thank you!</h3>
-              <p>Your message has been sent successfully. I&apos;ll get back to you soon!</p>
-              <Button onClick={() => window.location.reload()} className="mt-4" variant="outline">
-                Send Another Message
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </AnimatedSection>
-    )
-  }
+  // Handle successful form submission
+  useEffect(() => {
+    if (state.succeeded) {
+      setShowSuccess(true)
+      // Clear the form
+      reset()
+      // Hide success message after 5 seconds
+      const timer = setTimeout(() => {
+        setShowSuccess(false)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [state.succeeded, reset])
 
   return (
     <AnimatedSection id="contact" className="py-20 bg-muted/30">
@@ -53,6 +40,26 @@ export function Contact() {
             Have a question or want to work together? Reach out to me!
           </p>
         </div>
+
+        {/* Success Message */}
+        <AnimatePresence>
+          {showSuccess && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed top-4 right-4 z-50"
+            >
+              <div className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3">
+                <CheckCircle className="h-5 w-5" />
+                <span>Message sent successfully!</span>
+                <button onClick={() => setShowSuccess(false)} className="ml-2 hover:bg-green-600 rounded p-1">
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <AnimatedSection direction="right" delay={0.2} className="space-y-6">
@@ -85,7 +92,9 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="font-medium">Braga, Portugal</p>
+                      <LocationTooltip>
+                        <span className="font-medium">Braga, Portugal</span>
+                      </LocationTooltip>
                     </div>
                   </CardContent>
                 </Card>
