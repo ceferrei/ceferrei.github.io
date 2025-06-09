@@ -34,8 +34,13 @@ export function About() {
                 <div className="p-6">
                   <div className="space-y-8">
                     {/* Current */}
-                    <div className="relative pl-8 border-l-2 border-primary">
-                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary z-10"></div>
+                    <div className="relative pl-8">
+                      {/* Círculo */}
+                      <div className="absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-primary z-10"></div>
+
+                      {/* Linha que começa no centro da bola e vai para baixo */}
+                      <div className="absolute left-[-1px] top-4 w-0 h-[calc(100%+16px)] border-l-2 border-primary"></div>
+
                       <div className="mb-1 text-sm text-primary font-medium">Present</div>
                       <h4 className="text-lg font-medium">Frontend Developer</h4>
                       <p className="text-muted-foreground text-sm">
@@ -45,8 +50,13 @@ export function About() {
                     </div>
 
                     {/* Learning */}
-                    <div className="relative pl-8 border-l-2 border-primary/60">
-                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary/60 z-10"></div>
+                    <div className="relative pl-8">
+                      {/* Círculo */}
+                      <div className="absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-primary/60 z-10"></div>
+
+                      {/* Linha que começa no centro da bola e vai para baixo */}
+                      <div className="absolute left-[-1px] top-4 w-0 h-[calc(100%+16px)] border-l-2 border-primary/60"></div>
+
                       <div className="mb-1 text-sm text-primary/80 font-medium">2023 - Present</div>
                       <h4 className="text-lg font-medium">Continuous Learning</h4>
                       <p className="text-muted-foreground text-sm">
@@ -56,8 +66,13 @@ export function About() {
                     </div>
 
                     {/* Career Start */}
-                    <div className="relative pl-8 border-l-2 border-primary/30">
-                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary/30 z-10"></div>
+                    <div className="relative pl-8">
+                      {/* Círculo */}
+                      <div className="absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-primary/30 z-10"></div>
+
+                      {/* Última linha não precisa continuar para baixo */}
+                      <div className="absolute left-[-1px] top-4 w-0 h-[calc(100%-4px)] border-l-2 border-primary/30"></div>
+
                       <div className="mb-1 text-sm text-primary/60 font-medium">2022 - 2023</div>
                       <h4 className="text-lg font-medium">Career Transition</h4>
                       <p className="text-muted-foreground text-sm">
