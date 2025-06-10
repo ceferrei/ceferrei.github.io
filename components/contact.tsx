@@ -10,15 +10,19 @@ import { DepthCard } from "./depth-card"
 import { LocationTooltip } from "./location-tooltip"
 import { HoverCard, HoverCardTrigger } from "@/components/ui/hover-card"
 import { motion, AnimatePresence } from "framer-motion"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 export function Contact() {
   const [state, handleSubmit, reset] = useForm("mldnjewp")
+  const formRef = useRef<HTMLFormElement>(null)
   const [showSuccess, setShowSuccess] = useState(false)
 
   // Handle successful form submission
   useEffect(() => {
     if (state.succeeded) {
+      formRef.current?.reset()
+      reset()
+
       setShowSuccess(true)
       // Clear the form
       reset()
@@ -49,7 +53,7 @@ export function Contact() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="fixed top-4 right-4 z-50"
+              className="fixed bottom-4 right-4 z-50"
             >
               <div className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3">
                 <CheckCircle className="h-5 w-5" />
@@ -127,7 +131,7 @@ export function Contact() {
             <DepthCard>
               <Card className="overflow-hidden border-none shadow-md">
                 <CardContent className="p-6">
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                     <motion.div
                       initial={{ x: -20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
