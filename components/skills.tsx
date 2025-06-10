@@ -71,21 +71,15 @@ export function Skills() {
             <h3 className="text-2xl font-semibold mb-6">Technical Skills</h3>
 
             {/* Skills arranged in rows like the image */}
-            <div className="space-y-3 mb-8">
+            <div className="flex flex-wrap gap-3 mb-8 max-w-xl">
               {/* Row 1 */}
-              <div className="flex flex-wrap gap-3">
                 {skills.slice(0, 4).map((skill, index) => createSkillAnimation(skill, index))}
-              </div>
 
               {/* Row 2 */}
-              <div className="flex flex-wrap gap-3">
                 {skills.slice(4, 8).map((skill, index) => createSkillAnimation(skill, index + 4))}
-              </div>
 
               {/* Row 3 */}
-              <div className="flex flex-wrap gap-3">
                 {skills.slice(8).map((skill, index) => createSkillAnimation(skill, index + 8))}
-              </div>
             </div>
 
             {/* Legend exactly like the model */}
