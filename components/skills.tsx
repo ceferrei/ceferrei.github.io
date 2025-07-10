@@ -22,8 +22,8 @@ export function Skills() {
 
   const languages = [
     { name: "Portuguese", level: "Native" },
-    { name: "English", level: "C2" },
-    { name: "French", level: "B2" },
+    { name: "French", level: "C2" },
+    { name: "English", level: "B2" },
   ]
 
   interface Skill {
