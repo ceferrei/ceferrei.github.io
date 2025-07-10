@@ -49,7 +49,7 @@ export function Hero() {
                 <a href="#projects">View My Work</a>
               </Button>
               <Button variant="outline" size="lg" asChild className="cv-button">
-                <a href="/Cecilia Marcal - Junior FrontEnd Developer.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/CeciliaMarcal-JuniorFrontend.pdf" target="_blank" rel="noopener noreferrer">
                   <FileText className="h-4 w-4 mr-2" /> Download CV
                 </a>
               </Button>
