@@ -34,6 +34,17 @@ export function Projects() {
   // Define projects with categories and complexity
   const allProjects: Project[] = [
     {
+      title: "Task Roulette",
+      description:
+        "An application that randomly selects home improvement tasks to tackle each month.",
+      video: "/videos/taskRoulette.mp4",
+      tags: ["React", "State Management", "UI/UX"],
+      github: "https://github.com/ceferrei/task-roulette-react/tree/master",
+      demo: "https://task-roulette-react.vercel.app/",
+      category: "Applications",
+      complexity: 8,
+    },
+    {
       title: "Plant Care App",
       description:
         "An application to help users track and manage their plant care routines with watering schedules and care tips.",
